@@ -12,8 +12,7 @@ if [ "${1#-}" != "${1}" ] || [ -z "$(command -v "${1}")" ]; then
   set -- node "$@"
 fi
 
-envsubst < /taiga-events/docker/env.template \
-         > /taiga-events/.env
+/taiga-events/docker/write.env.sh > /taiga-events/.env
 
 chown -R taiga:taiga /taiga-events
 
